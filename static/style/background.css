@@ -8,6 +8,8 @@
 }
 
 #firefly-layer {
+    width: 0 !important;
+    left: 50vw !important;
     z-index: -1 !important;
 }
 
@@ -19,9 +21,11 @@
     bottom: 5vw;
 }
 
-#fireflies {
-    margin-top: 50vh;
-    width: 50vh;
-    height: 50vh;
-    margin-left: calc(50vw - 25vh);
+.firefly {
+    width: 2px;
+    height: 2px;
+    position: absolute;
+    background-color: white;
+
+    z-index: 99;
 }

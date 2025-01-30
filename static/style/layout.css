@@ -3,18 +3,27 @@
     color: white;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     margin: 0;
     background-color: black;
+    height: 100%;
 }
 
 h1 {
+
     color: #00000000;
     background: linear-gradient(45deg, #161194, #c5731c);
     background-clip: text;
 
     text-align: center;
     font-size: 3.5rem;
+
+    margin-top: 0;
+    padding-top: 2rem;
     margin-bottom: 1rem;
 
     font-weight: 700;
