@@ -1,0 +1,27 @@
+.background {
+    position: absolute;
+    width: 100%;
+
+    bottom: 0;
+
+    z-index: -2;
+}
+
+#firefly-layer {
+    z-index: -1 !important;
+}
+
+#fire {
+    position: absolute;
+
+    width: 30vw;
+    left: 35vw;
+    bottom: 5vw;
+}
+
+#fireflies {
+    margin-top: 50vh;
+    width: 50vh;
+    height: 50vh;
+    margin-left: calc(50vw - 25vh);
+}
