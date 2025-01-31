@@ -7,7 +7,7 @@ var fire_counter = 0
 var firefly_layer;
 const firefly_count = 8;
 const firefly_spread = 200;
-const firefly_speed = 0.03;
+const firefly_speed = 0.05;
 const firefly_boost = 100;
 const fire_light_radius = 125;
 const run_speed = 0.3;
