@@ -3,22 +3,31 @@
     width: 100%;
 
     bottom: 0;
-
-    z-index: -2;
+    z-index: 1;
 }
 
 #firefly-layer {
     width: 0 !important;
     left: 50vw !important;
-    z-index: -1 !important;
+    z-index: 2 !important;
 }
 
-#fire {
+#fire-image {
     position: absolute;
 
     width: 30vw;
     left: 35vw;
     bottom: 5vw;
+}
+
+#fire-button {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0);
+
+    left: 46vw;
+    width: 8vw;
+    height: 6vw;
+    bottom: 10vw;
 }
 
 .firefly {

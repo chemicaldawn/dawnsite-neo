@@ -2,7 +2,7 @@
 <html>
     <head>
         <script src="https://unpkg.com/htmx.org@2.0.4"></script>
-        <script src="/static/script/fun.js"></script>
+        <script type="module" src="/static/script/main.js"></script>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,15 +11,17 @@
         <link rel="stylesheet" href="static/style/layout.css">
         <link rel="stylesheet" href="static/style/background.css">
     </head>
-    <body onload="startAnimating()">
+    <body>
         <div id="fire-layer" class="background">
-            <img src="static/images/fire/fire1.png" id="fire">
+            <img src="static/images/fire/fire1.png" id="fire-image">
+            <div id="fire-button"></div>
         </div>
         <div id="firefly-layer" class="background">
         </div>
         
         <div id="content">
-            <h1>dawn schumacher</h1>
+            <div id="spacer"></div>
+            <img id="title" src="/static/images/logo.png">
             <hr>
             <div id="navbar">
                 {{ navbar }}

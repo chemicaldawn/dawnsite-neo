@@ -9,7 +9,10 @@ html {
 
 body {
     margin: 0;
-    background-color: black;
+    background-color: #000000;
+    
+    image-rendering: pixelated;
+    background-size: 100% 100%;
     height: 100%;
 }
 
@@ -32,6 +35,27 @@ h1 {
 
 h1::after {
     text-shadow: 3px 3px 0px #2d2d2d;
+}
+
+img {
+    image-rendering: pixelated;
+}
+
+#title {
+    height: 5rem;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-bottom: 1rem;
+
+    background: linear-gradient(45deg, #7c4490, #b27534);
+}
+
+#spacer {
+    padding-top: 1rem;
+    margin:0;
 }
 
 #content {
