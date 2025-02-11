@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta property="og:title" content="dawn's personal website">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="http://dawns.info">
+        <meta property="og:image" content="http://dawns.info/static/images/fire1.png">
+        <meta name="theme-color" content="#4b3661">
+
         <script src="https://unpkg.com/htmx.org@2.0.4"></script>
         <script type="module" src="/static/script/main.js"></script>
 
@@ -12,6 +18,9 @@
         <link rel="stylesheet" href="static/style/background.css">
     </head>
     <body>
+        <div id="treeline-layer">
+            <img id="treeline-image" src="static/images/treeline.png">
+        </div>
         <div id="fire-layer" class="background">
             <img src="static/images/fire/fire1.png" id="fire-image">
             <div id="fire-button"></div>
@@ -22,11 +31,9 @@
         <div id="content">
             <div id="spacer"></div>
             <img id="title" src="/static/images/logo.png">
-            <hr>
             <div id="navbar">
                 {{ navbar }}
             </div>
-            <hr>
             <div id="page">
                 {{ page }}
             </div>

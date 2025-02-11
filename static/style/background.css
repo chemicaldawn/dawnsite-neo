@@ -15,8 +15,8 @@
 #fire-image {
     position: absolute;
 
-    width: 30vw;
-    left: 35vw;
+    width: 25vw;
+    left: 37.5vw;
     bottom: 5vw;
 }
 
@@ -28,6 +28,20 @@
     width: 8vw;
     height: 6vw;
     bottom: 10vw;
+}
+
+#treeline-layer {
+    position: absolute;
+    top:-20vh;
+    width: 100vw;
+}
+
+#treeline-image {
+    z-index: -99;
+    position: absolute;
+
+    background-color: #05030c;
+    width: 100vw;
 }
 
 .firefly {

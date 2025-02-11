@@ -5,7 +5,7 @@ from fast_html import *
 from jinja2 import Template
 
 def spacer():
-    return p("/", class_="spacer")
+    return p("——————", class_="spacer")
 
 def load_pages():
     pgs = {}
