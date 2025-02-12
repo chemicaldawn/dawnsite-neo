@@ -13,8 +13,6 @@ export function initFire(image, button) {
 
 export function tickFire(deltaTime) {
     fire_timer += deltaTime
-    console.log(fire_timer, deltaTime)
-
 
     if (fire_timer >= FireProperties.fire_interval) {
         fire_counter += 1

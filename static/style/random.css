@@ -1,0 +1,8 @@
+#random-label {
+    text-align: center;
+    cursor: default;
+}
+
+#random-label:hover {
+     text-decoration: underline;
+}

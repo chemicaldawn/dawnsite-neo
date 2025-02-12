@@ -14,23 +14,35 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" href="static/style/layout.css">
-        <link rel="stylesheet" href="static/style/background.css">
+        <link rel="stylesheet" href="/static/style/layout.css">
+        <link rel="stylesheet" href="/static/style/background.css">
+        <link rel="stylesheet" href="/static/style/random.css">
     </head>
     <body>
+        <div id="score-layer" class="background">
+            <p id="score-title"></p>
+            <p id="score-counter"></p>
+        </div>
+        <div id="moon-layer" class="background">
+            <img id="moon" draggable="false" src="/static/images/moon.png"></div>
+        </div>
         <div id="treeline-layer">
-            <img id="treeline-image" src="static/images/treeline.png">
+            <div id="treeline-spacer"></div>
+            <img id="treeline-image" src="/static/images/treeline.png">
         </div>
         <div id="fire-layer" class="background">
-            <img src="static/images/fire/fire1.png" id="fire-image">
+            <img src="/static/images/fire/fire1.png" draggable="false" id="fire-image">
             <div id="fire-button"></div>
+        </div>
+        <div id="object-layer" class="background"> 
+
         </div>
         <div id="firefly-layer" class="background">
         </div>
         
         <div id="content">
             <div id="spacer"></div>
-            <img id="title" src="/static/images/logo.png">
+            <img id="title" draggable="false" src="/static/images/logo.png">
             <div id="navbar">
                 {{ navbar }}
             </div>

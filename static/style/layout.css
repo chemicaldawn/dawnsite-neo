@@ -18,23 +18,21 @@ body {
 
 h1 {
 
-    color: #00000000;
-    background: linear-gradient(45deg, #161194, #c5731c);
-    background-clip: text;
+    color: #ffffff;
 
-    text-align: center;
-    font-size: 3.5rem;
+    text-align: left;
+    font-size: 2rem;
 
     margin-top: 0;
-    padding-top: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 
     font-weight: 700;
 
 }
 
-h1::after {
-    text-shadow: 3px 3px 0px #2d2d2d;
+h2 {
+    color: #929292;
+    margin-top: 0;
 }
 
 img {

@@ -55,8 +55,8 @@ class Firefly {
 
     attemptSprint(mouseX, mouseY, deltaTime) {
         const relativeMouse = new Vector2(
-            mouseX - document.body.scrollWidth / 2 - this.position.x, 
-            mouseY - document.body.scrollHeight - this.position.y)
+            mouseX - document.body.clientWidth / 2 - this.position.x, 
+            mouseY - document.body.clientHeight - this.position.y)
         const dist = relativeMouse.length()
 
         if (dist <= FireflyProperties.sprint_dist) {

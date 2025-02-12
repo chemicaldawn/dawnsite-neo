@@ -1,12 +1,37 @@
 .background {
-    position: absolute;
+    position: fixed;
     width: 100%;
 
     bottom: 0;
     z-index: 1;
 }
 
+#score-layer {
+    width: fit-content !important;
+
+    left: 1rem !important;
+    bottom: 1rem !important;
+    z-index: 2 !important;
+}
+
+#score-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+#score-counter {
+    font-size: 1.1rem;
+    margin-top: 0;
+    color:#656565
+}
+
 #firefly-layer {
+    width: 0 !important;
+    left: 50vw !important;
+    z-index: 2 !important;
+}
+
+#object-layer {
     width: 0 !important;
     left: 50vw !important;
     z-index: 2 !important;
@@ -31,24 +56,68 @@
 }
 
 #treeline-layer {
-    position: absolute;
-    top:-20vh;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
     width: 100vw;
+    background-color: #020513;
+    z-index: -99;
+}
+
+#treeline-spacer {
+    height: 10vh;
 }
 
 #treeline-image {
-    z-index: -99;
-    position: absolute;
-
-    background-color: #05030c;
+    z-index: -98;
+    
+    position: relative;
+    background-color: #02051300;
     width: 100vw;
 }
 
+.star {
+    width: 0.125vw;
+    height: 0.125vw;
+    position: absolute;
+    background-color: white;
+
+    z-index: -99;
+}
+
 .firefly {
-    width: 2px;
-    height: 2px;
+    width: 0.125vw;
+    height: 0.125vw;
     position: absolute;
     background-color: white;
 
     z-index: 99;
+}
+
+.object {
+    position: absolute;
+}
+
+.basic-object {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+}
+
+#moon {
+    position: fixed;
+
+    width: 4vw;
+    height: 4vw;
+
+    top: 4vw;
+    right: 9vw;
+
+    z-index: 4;
+}
+
+.moon {
+    width: 4vw;
+    height: 4vw;
 }
