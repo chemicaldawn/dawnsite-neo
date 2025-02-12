@@ -39,8 +39,8 @@ def get_blog_post(post : str):
 def get_roll():
     return roll[randint(0, len(roll) - 1)]
 
-def get_random():
-    return random[randint(0, len(random) - 1)]
+def get_random(page : str):
+    return random[page]
 
 def load_pages():
     builder = {}
@@ -63,9 +63,11 @@ special_arguments["blog"] = {
 }
 
 def load_random():
-    builder = []
+    builder = {}
     for f in listdir("content/random"):
-        builder.append(load_html(f"content/random/{f}"))
+        frag = f.split(".")
+        if (frag[1] == "html"):
+            builder[frag[0]] = load_html(f"content/random/{f}")
     return builder
 
 layout = Template(load_html("templates/layout.html"))

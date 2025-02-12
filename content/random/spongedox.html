@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                background-color: black;
+            }
+
+            #pineapple {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                width: 500px;
+                height: 500px;
+                transition: opacity 0.1s;
+            }
+
+            #ip {
+                position: fixed;
+                top: 25%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 99;
+
+                color: rgb(255, 108, 108);
+                
+                font-family: sans-serif;
+                font-size: 20rem;
+
+                opacity: 0;
+
+                transition: opacity 5s;
+            }
+
+        </style>
+        <script>
+            let debounce = false
+
+            function onload() {
+                /** @type {HTMLImageElement} */
+                let pineapple = document.getElementById("pineapple")
+                let audio = new Audio('/static/random/spongedox/knock.mp3');
+
+
+                pineapple.addEventListener("click", () => {
+                    if (!debounce) {
+                        debounce = true
+
+                        fetch("/ip").then((response) => {
+                            return response.json()
+                        }).then((json) => {
+                            document.getElementById("ip").innerHTML = json[0]
+                        })
+
+                        audio.play();
+
+                        pineapple.style.opacity = "0"
+
+                        setTimeout(() => {
+                            pineapple.src = "/static/random/spongedox/bob.webp"
+                        }, 1000)
+
+                        setTimeout(() => {
+                            pineapple.style.opacity = "1.0"
+                            audio = new Audio('/static/random/spongedox/cocktail.mp3');
+                            audio.play();
+                            
+                            document.getElementById("ip").style.opacity = "1.0"
+                        }, 6000)
+                    }
+                    
+                })
+            }
+        </script>
+    </head>
+    <body onload="onload()">
+        
+        <img id="pineapple" src="/static/random/spongedox/pineapple.png">
+        <p id="ip"></p>
+    </body>
+</html>

@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
@@ -20,6 +20,10 @@ def random():
         "url" : caching.get_roll()
     }
 
+@server.get("/ip", response_class=JSONResponse)
+def ip(request: Request):
+    return request.client
+
 @server.get("/{page}", response_class = HTMLResponse)
 def full_page(page : str):
     return caching.layout.render(navbar=caching.get_navbar(page), page=caching.get_page(page))
@@ -27,6 +31,10 @@ def full_page(page : str):
 @server.get("/blog/{post}", response_class = HTMLResponse)
 def blog_post(post : str):
     return caching.layout.render(navbar=caching.get_navbar("blog"), page=caching.get_blog_post(post))
+
+@server.get("/random/{page}", response_class = HTMLResponse)
+def random_page(page: str):
+    return caching.get_random(page)
 
 @server.get("/fragments/{page}", response_class = HTMLResponse)
 def page_fragment(page : str):
