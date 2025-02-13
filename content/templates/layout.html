@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta property="og:title" content="dawn's personal website">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="http://dawns.info">
+        <meta property="og:image" content="http://dawns.info/static/images/fire1.png">
+        <meta name="theme-color" content="#4b3661">
+
+        <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+        <script type="module" src="/static/script/main.js"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="/static/style/layout.css">
+        <link rel="stylesheet" href="/static/style/background.css">
+        <link rel="stylesheet" href="/static/style/random.css">
+    </head>
+    <body>
+        <div id="score-layer" class="background">
+            <p id="score-title"></p>
+            <p id="score-counter"></p>
+        </div>
+        <div id="moon-layer" class="background">
+            <img id="moon" draggable="false" src="/static/images/moon.png"></div>
+        </div>
+        <div id="treeline-layer">
+            <div id="treeline-spacer"></div>
+            <img id="treeline-image" src="/static/images/treeline.png">
+        </div>
+        <div id="fire-layer" class="background">
+            <img src="/static/images/fire/fire1.png" draggable="false" id="fire-image">
+            <div id="fire-button"></div>
+        </div>
+        <div id="object-layer" class="background"> 
+
+        </div>
+        <div id="firefly-layer" class="background">
+        </div>
+        
+        <div id="content">
+            <div id="spacer"></div>
+            <img id="title" draggable="false" src="/static/images/logo.png">
+            <div id="navbar">
+                {{ navbar }}
+            </div>
+            <div id="page">
+                {{ page }}
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                background-color: pink;
+
+                transition: background-color 1.5s
+            }
+
+            div#doors {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    opacity: 1;
+                    transition: opacity 1.5s
+                }
+            }
+
+            #text {
+                transition: opacity 1.5s
+            }
+
+            #stuff {
+                margin-top: 20vh;
+                text-align: center;
+
+                transition: opacity 1.5s
+            }
+
+            #freddy {
+                position: fixed;
+                width: 50vw;
+                left: 25vw;
+
+                bottom: -200vh;
+
+                transition: all 0.5s;
+            }
+        </style>
+        <script>
+            let random = Math.round(Math.random() * 3 + 1)
+            let dooropen = new Audio('/static/random/monty/doorsound.mp3');
+
+            function onload() {
+                document.getElementById("1").addEventListener("click",() => {
+                    open(1)
+                    disappear(2)
+                    disappear(3)
+                })
+
+                document.getElementById("2").addEventListener("click",() => {
+                    disappear(1)
+                    open(2)
+                    disappear(3)
+                })
+
+                document.getElementById("3").addEventListener("click",() => {
+                    disappear(1)
+                    disappear(2)
+                    open(3)
+                })
+            }
+
+            function open(door) {
+                let d = document.getElementById(door.toString())
+                let audio = new Audio('/static/random/monty/jumpscare.mp3');
+
+                d.src = "/static/random/monty/open.png"
+                dooropen.play()
+
+                setTimeout(() => {
+                    document.body.style.backgroundColor = "black"
+                    document.getElementById("text").style.opacity = "0"
+                }, 1000)
+
+                if (door != random) {
+                    setTimeout(() => {
+                        let freddy = document.getElementById("freddy")
+                        freddy.style.bottom = "10vh"
+                        freddy.style.width = "100vw"
+                        freddy.style.left = "0"
+
+                        audio.play()
+
+                        setTimeout(() => {
+                            audio.pause()
+                            d.remove()
+                            freddy.remove()
+                        }, 1750)
+                    }, 3000)
+                } else {
+
+                }
+            }
+
+            function disappear(door) {
+                let d = document.getElementById(door.toString())
+                d.style.opacity = "0"
+            }
+        </script>
+    </head>
+    <body onload="onload()">
+        <div id="stuff">
+            <div id="text">
+                <h1>welcome to the Magic Hallway!</h1>
+                <h2>Pick a door... two of them are evil...</h2>
+            </div>
+            <div id="doors">
+                <img src="/static/random/monty/closed.png" id="1">
+                <img src="/static/random/monty/closed.png" id="2">
+                <img src="/static/random/monty/closed.png" id="3">
+            </div>
+            <img id="freddy" src="/static/random/monty/freddy.gif">
+        </div>
+    </body>
+</html>
