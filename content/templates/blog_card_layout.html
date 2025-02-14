@@ -1,0 +1,7 @@
+<div class="blog-card" hx-swap="innerHTML" hx-target="#page" hx-trigger="click" hx-get="/fragments/blog/{{ post_category }}/{{ post_id }}" hx-push-url="/blog/{{ post_category }}/{{ post_id }}">
+    <img class="blog-thumbnail" src="{{ post_thumbnail }}">
+    <div class="blog-card-info">
+        <h3>{{ post_title }}</h3>
+        <h4>{{ post_description }}</h4>
+    </div>
+</div>

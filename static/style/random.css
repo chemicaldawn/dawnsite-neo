@@ -1,6 +1,8 @@
 #random-label {
     text-align: center;
     cursor: default;
+
+    transition: opacity 0.25s;
 }
 
 #random-label:hover {

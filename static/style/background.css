@@ -45,6 +45,13 @@
     bottom: 5vw;
 }
 
+@media only screen and (max-width: 768px) {
+    #fire-image {
+        width: 50vw !important;
+        left: 25vw !important;
+    }
+}
+
 #fire-button {
     position: absolute;
     background-color: rgba(0, 0, 0, 0);

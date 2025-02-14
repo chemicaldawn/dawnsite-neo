@@ -10,11 +10,11 @@ def root():
 
 @router.get("/{page}", response_class = HTMLResponse)
 def full_page(page : str):
-    return cache.layout.render(navbar=cache.get_navbar(page), page=cache.get_page(page))
+    return cache.layout.render(page_name=page, navbar=cache.get_navbar(page), page=cache.get_page(page))
 
-@router.get("/blog/{post}", response_class = HTMLResponse)
-def blog_post(post : str):
-    return cache.layout.render(navbar=cache.get_navbar("blog"), page=cache.get_blog_post(post))
+@router.get("/blog/{category}/{post}", response_class = HTMLResponse)
+def blog_post(category : str, post : str):
+    return cache.layout.render(navbar=cache.get_navbar("blog"), page=cache.get_blog_post(category, post))
 
 @router.get("/random/{page}", response_class = HTMLResponse)
 def random_page(page: str):

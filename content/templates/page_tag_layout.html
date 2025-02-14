@@ -1,0 +1,1 @@
+<p class="nav-link {{additional}}" x-on:click="selected = '{{page_name}}'" x-bind:class="{ 'active': selected == '{{page_name}}' }" hx-trigger="click" hx-get="/fragments/{{page_name}}" hx-push-url="/{{page_name}}" hx-target="#page" hx-swap="innerHTML">{{ page_name }}</p>

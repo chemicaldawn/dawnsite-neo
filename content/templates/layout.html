@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta property="og:title" content="dawn's personal website">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="http://dawns.info">
-        <meta property="og:image" content="http://dawns.info/static/images/fire1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#4b3661">
 
+        <script src="//unpkg.com/alpinejs" defer></script>
         <script src="https://unpkg.com/htmx.org@2.0.4"></script>
         <script type="module" src="/static/script/main.js"></script>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" href="/static/style/layout.css">
+        <link rel="stylesheet" href="/static/style/blog.css">
         <link rel="stylesheet" href="/static/style/background.css">
         <link rel="stylesheet" href="/static/style/random.css">
     </head>
@@ -43,7 +42,7 @@
         <div id="content">
             <div id="spacer"></div>
             <img id="title" draggable="false" src="/static/images/logo.png">
-            <div id="navbar">
+            <div x-data="{selected: '{{ page_name }}'}" id="navbar">
                 {{ navbar }}
             </div>
             <div id="page">

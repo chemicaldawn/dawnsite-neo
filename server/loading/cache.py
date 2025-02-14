@@ -7,22 +7,24 @@ from collections import defaultdict
 from jinja2 import Template
 
 def spacer():
-    return p("——————", class_="spacer")
+    return hr(class_="spacer")
 
 def build_navbar():
     page_tags = [spacer()]
+    tag_layout = load_html("content/templates/page_tag_layout.html")
+
     for page in page_list:
-        page_tags.append(
-            p(page, class_=f"{page}* nav-link", hx_get=f"/fragments/{page}", hx_trigger="click", hx_target="#page", hx_swap="innerHTML", hx_push_url=f"/{page}")
-        )
+
+        additional = ""
+        if (page == "random"):
+            additional = "desktop-only"
+
+        page_tags.append(Template(tag_layout).render(page_name = page, additional = additional))
         page_tags.append(spacer())
     return render(page_tags)
 
-def build_blog_listing():
-    return "<p>yuh</p>"
-
 def get_navbar(page = "home"):
-    return navbar.replace(f"{page}*", "active")
+    return navbar
 
 def get_page(page : str):
     try:
@@ -30,9 +32,9 @@ def get_page(page : str):
     except:
         return "404"
 
-def get_blog_post(post : str):
+def get_blog_post(category : str, post : str):
     try:
-        return blog_posts[post]
+        return blog_posts[category][post]
     except:
         return "404"
 
@@ -48,18 +50,43 @@ def load_pages():
         builder[page] = Template(load_html(f"content/pages/{page}.html")).render(**special_arguments[page])
     return builder
 
+def load_blog_listing():
+
+    blog_card_raw = load_html("content/templates/blog_card_layout.html")
+    builder = {}
+
+    for d in listdir("content/blog"):
+        path = f"content/blog/{d}"
+        meta = load_json(f"{path}/meta.json")
+        builder[d] = ""
+
+        for post in meta.keys():
+            blog_card = Template(blog_card_raw).render(post_title=meta[post]["title"], post_description=meta[post]["description"], post_thumbnail=meta[post]["thumbnail"], post_id=post, post_category=d)
+            builder[d] += blog_card
+
+    return builder
+
 def load_blog_posts():
     builder = {}
     blog_post_layout = load_html("content/templates/blog_post_layout.html")
 
-    for post in blog_meta.keys():
-        builder[post] = Template(blog_post_layout).render(post_title=blog_meta[post]["title"], post_description=blog_meta[post]["description"], post_content=load_html(f"content/blog/{post}.html"))
+    for d in listdir("content/blog"):
+        path = f"content/blog/{d}"
+        meta = load_json(f"{path}/meta.json")
+        builder[d] = {}
+
+        for post in meta.keys():
+            builder[d][post] = Template(blog_post_layout).render(post_title=meta[post]["title"], post_description=meta[post]["description"], post_content=load_html(f"{path}/{post}.html"), post_thumbnail=meta[post]["thumbnail"], post_id=post, post_category=d)
 
     return builder
 
+blog_listing = load_blog_listing()
 special_arguments = defaultdict(dict)
 special_arguments["blog"] = {
-    "listing" : build_blog_listing()
+    "artmusic_listing" : blog_listing["art-music"],
+    "ramblings_listing" : blog_listing["personal-ramblings"],
+    "politics_listing" : blog_listing["politics"],
+    "other_listing" : blog_listing["other"]
 }
 
 def load_random():
@@ -74,7 +101,6 @@ layout = Template(load_html("content/templates/layout.html"))
 
 page_list = load_json("content/pages/meta.json")["pages"]
 pages = load_pages()
-blog_meta = load_json("content/blog/meta.json")
 blog_posts = load_blog_posts()
 roll = load_json("content/random/roll.json")["urls"]
 random = load_random()

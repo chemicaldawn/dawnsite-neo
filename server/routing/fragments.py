@@ -8,6 +8,6 @@ router = APIRouter()
 def page_fragment(page : str):
     return cache.pages[page]
 
-@router.get("/fragments/blog/listing", response_class = HTMLResponse)
-def blog_listing():
-    return "<p>hello</p>"
+@router.get("/fragments/blog/{category}/{id}", response_class = HTMLResponse)
+def blog_post_fragment(category: str, id: str):
+    return cache.get_blog_post(category, id)
