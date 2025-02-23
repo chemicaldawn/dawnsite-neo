@@ -8,6 +8,6 @@ from server.routing.api import router as api_router
 server = FastAPI()
 server.mount("/static", StaticFiles(directory="static"), name="static")
 
+server.include_router(api_router)
 server.include_router(primary_router)
 server.include_router(fragment_router)
-server.include_router(api_router)

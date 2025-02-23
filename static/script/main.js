@@ -31,7 +31,7 @@ function tick() {
 
     tickFire(deltaTime)
     tickFireflies(mouseX, mouseY, deltaTime)
-    tickStars()
+    tickStars(deltaTime)
     tickObjects(deltaTime)
     tickRandom()
     tickSecrets()

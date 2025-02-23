@@ -20,6 +20,7 @@ export class Object {
         this.dragging = false
 
         this.position = new Vector2(x, y)
+        this.minY = ground + this.element.clientHeight
         this.rotPosition = 0
         this.velocity = new Vector2(0, 0)
         this.rotVelocity = 0
@@ -33,7 +34,7 @@ export class Object {
 
         document.body.addEventListener("mousemove", (event) => {
             if (this.dragging) {
-                this.onDrag()
+                this.onDrag(event)
             }
         })
 
@@ -50,7 +51,7 @@ export class Object {
         document.body.style.userSelect = "none"
     }
 
-    onDrag() {
+    onDrag(event) {
         this.position.x += event.movementX
         this.position.y -= event.movementY
 
@@ -71,7 +72,7 @@ export class Object {
     }
 
     land() {
-        this.position.y = ground
+        this.position.y = this.minY
         this.velocity = new Vector2(0,0)
         this.rotPosition = 0
         this.rotVelocity = 0
@@ -91,11 +92,11 @@ export class Object {
             this.velocity.y = 0
         }    
 
-        if (this.position.y <= ground) {
+        if (this.position.y <= this.minY) {
             if (this.bounciness > 0) {
                 this.velocity.y = this.bounciness * -this.velocity.y
                 this.velocity.x *= this.bounciness
-                this.position.y = ground + 0.01
+                this.position.y = this.minY + 0.01
 
                 if (this.velocity.y <= 0.01) {
                     this.land()
@@ -161,7 +162,7 @@ export class MoonObject extends BoomerangObject {
 
     tick(deltaTime) {
 
-        if (this.position.y <= (ground + 20)) {
+        if (this.position.y <= (this.minY + 20)) {
             this.airborne = false
 
             if (this.score > 0) {

@@ -68,7 +68,9 @@ function tryBind() {
 
 function randomize() {
     fetch("/roll-the-dice").then(response => {
-        return response.json()
+        let res = response.json()
+        console.log(res)
+        return res
     }).then(data => {
         console.log(data)
         window.location.href = data.url
