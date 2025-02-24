@@ -1,2 +1,2 @@
 source .venv/bin/activate
-.venv/bin/gunicorn -k uvicorn.workers.UvicornWorker --workers 4 server.main:server
+.venv/bin/gunicorn -p gunicorn.pid -k uvicorn.workers.UvicornWorker --workers 4 -D server.main:server

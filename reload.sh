@@ -1,2 +1,2 @@
 git pull origin main
-kill -HUP $(pgrep gunicorn)
+kill -HUP $(cat ./gunicorn.pid)
