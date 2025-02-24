@@ -21,7 +21,7 @@ def verify_signature(payload_body, secret, signature_header):
     return True
 
 @router.post("/git/onpush", response_class = HTMLResponse)
-def onpush(request : Request):
+async def onpush(request : Request):
     if (verify_signature(await request.body(), cache.secrets["github"], request.headers.get("x-hub-signature-256"))):
         subprocess.run(["sh","./reload.sh"])
-    print("Reloading server...")
+        print("Reloading server...")
