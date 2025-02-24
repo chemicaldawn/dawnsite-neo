@@ -1,3 +1,3 @@
-pkill gunicorn
+pkill -P1 gunicorn
 git pull origin main
-./startup.sh
+sh ./startup.sh
