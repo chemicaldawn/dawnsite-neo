@@ -4,7 +4,7 @@ import subprocess
 
 from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse
-#import server.loading.cache as cache
+import server.loading.cache as cache
 
 router = APIRouter()
 
