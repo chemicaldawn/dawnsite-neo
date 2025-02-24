@@ -99,6 +99,7 @@ def load_random():
 
 layout = Template(load_html("content/templates/layout.html"))
 
+secrets = load_json(".env")
 page_list = load_json("content/pages/meta.json")["pages"]
 pages = load_pages()
 blog_posts = load_blog_posts()
