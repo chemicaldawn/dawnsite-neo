@@ -12,7 +12,7 @@ def verify_signature(payload_body, secret, signature_header):
     if not signature_header:
         return False
 
-    hash_object = hmac.new(secret_token.encode('utf-8'), msg=payload_body, digestmod=hashlib.sha256)
+    hash_object = hmac.new(secret.encode('utf-8'), msg=payload_body, digestmod=hashlib.sha256)
     expected_signature = "sha256=" + hash_object.hexdigest()
 
     if not hmac.compare_digest(expected_signature, signature_header):
