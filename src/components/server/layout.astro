@@ -31,6 +31,14 @@ const { page } = Astro.props
 	</body>
 </html>
 
+<script>
+    import { navigateBack } from "../navigation.ts"
+
+    window.addEventListener("popstate", (event) => {
+        navigateBack(event)
+    })
+</script>
+
 <style is:global>
     html, body {
         margin: 0;

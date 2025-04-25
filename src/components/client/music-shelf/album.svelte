@@ -1,12 +1,11 @@
 <script lang="ts">
     import jQuery from "jquery";
     import { Album } from "../../types"
+    import { navigateTo } from "../../navigation";
     let { album }: { album : Album } = $props()
 
     function travel(album : Album) {
-        jQuery.get(`/partials/music-shelf/${album.id}`).then((data) => {
-            document.getElementById("content")!.innerHTML = data;
-        })
+        navigateTo("music-shelf",album.id)
     }
 </script>
 

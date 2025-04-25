@@ -1,5 +1,8 @@
 <script lang="ts">
     import jQuery from "jquery";
+
+    import { navigateTo } from "../navigation";
+
     import { onMount } from "svelte";
     import type { MouseEventHandler } from "svelte/elements";
 
@@ -24,16 +27,16 @@
         selected = event.target as HTMLButtonElement;
         arrow_pos = selected.getBoundingClientRect().y - navitems.getBoundingClientRect().y
 
-        jQuery.get("/partials/" + selectedText, (data) => {
-            document.getElementById("content")!.innerHTML = data
-            history.pushState("", "", "/" + selectedText);
-        })
-        console.log(selectedText)
+        navigateTo(selectedText,"")
     }
 
     onMount(() => {
         console.log(page)
         selected = navitems.querySelector<HTMLButtonElement>(`button#page-${page}`)!
+
+        window.addEventListener("popstate", (event) => {
+            selected = document.querySelector<HTMLButtonElement>("#page-" + event.state.basePath)!
+        })
     })
 </script>
 
