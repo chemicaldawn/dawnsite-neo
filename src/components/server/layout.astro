@@ -1,0 +1,76 @@
+---
+import Page from "./page.astro"
+import TopNavigation from "../client/top-navigation.svelte"
+import Background from "../client/background.svelte"
+import Sidebar from "./sidebar.astro"
+
+const { page } = Astro.props
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>dawns.info</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+	</head>
+	<body>
+        <Background client:load />
+		<Sidebar page={page}/>
+        <div id="main">
+            <TopNavigation client:load></TopNavigation>
+            <div id="content">
+                <slot />
+            </div>
+        </div>
+	</body>
+</html>
+
+<style is:global>
+    html, body {
+        margin: 0;
+        width, height: 100%;
+    }
+
+    body {
+        display: flex;
+        flex-direction: row;
+
+        margin-left: 5vw;
+        margin-right: 5vw;
+        background-color: #fbf1c7;
+    }
+
+    p {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    #main {
+        color: #fff9e2;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        margin-top: 5vw;
+        margin-left: 5vw;
+        margin-right: 25vw;
+
+        flex-grow: 1;
+    }
+
+    #content {
+        font-family: 'Ubuntu Mono', monospace;
+        font-size: 1.1rem;
+
+        width: 100%;
+        padding: 1rem;
+        box-sizing: border-box;
+        background-color: #312d2b;
+    }
+</style>

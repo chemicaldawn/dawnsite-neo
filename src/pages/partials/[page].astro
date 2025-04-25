@@ -1,0 +1,27 @@
+---
+import { render } from "astro:content";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+    let paths : any[] = [];
+    let content = await getCollection('pages')
+    content.forEach((entry) => {
+        paths.push(
+            {
+                params: {
+                    page: entry.id
+                },
+                props: {
+                    page: entry
+                }
+            }
+        )
+    })
+
+    return paths;
+}
+
+const { page } = Astro.props
+const { Content, headings } = await render(page)
+---
+<Content />

@@ -1,0 +1,55 @@
+---
+import { passthroughImageService } from "astro/config"
+import { getCollection } from "astro:content"
+
+import FunText from "../client/fun-text.svelte"
+import Navigation from "../client/side-navigation.svelte"
+
+const { page } = Astro.props
+const items = await getCollection("pages")
+const ids : string[] = []
+
+items.forEach((item) => {
+    ids.push(item.id)
+})
+---
+
+<div id="sidebar">
+    <div id="name">
+        <FunText id="first" text="dawn" />
+        <FunText id="last" text="schumacher" />
+    </div>
+    <Navigation client:load page={page} nav_items={ids} />
+</div>
+
+<style>
+    #sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        width: 15vw;
+
+        margin-top: 5vw;
+    }
+
+    #name {
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
+
+        font-family: "Ubuntu Mono", monospace;
+        font-size: 2.25rem;
+        font-weight: 400;
+        font-style: normal;
+
+        #first {
+            color: #5d8743;
+            font-weight: 700;
+        }
+
+        #last {
+            color: #605443;
+        }
+    }
+</style>

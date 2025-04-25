@@ -1,0 +1,30 @@
+---
+import { render } from "astro:content";
+import { getCollection } from "astro:content";
+import Layout from "../components/server/layout.astro";
+import PageComponent from "../components/server/page.astro";
+
+export async function getStaticPaths() {
+    let paths : any[] = [];
+    let content = await getCollection('pages')
+    content.forEach((entry) => {
+        paths.push(
+            {
+                params: {
+                    page: entry.id
+                },
+                props: {
+                    page_id: entry.id
+                }
+            }
+        )
+    })
+
+    return paths;
+}
+
+const { page_id } = Astro.props
+---
+<Layout page={page_id}>
+    <PageComponent page={page_id}></Page>
+</Layout>

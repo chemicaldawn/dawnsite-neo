@@ -1,0 +1,12 @@
+---
+import { getEntry, render } from "astro:content"
+
+const { page } = Astro.props
+const entry = await getEntry('pages', page)
+if (!entry) {
+    throw new Error('Could not find page page with id ' + page);
+}
+
+const { Content, headings } = await render(entry)
+---
+<Content />

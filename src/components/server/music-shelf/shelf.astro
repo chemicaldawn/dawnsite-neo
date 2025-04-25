@@ -1,0 +1,33 @@
+---
+import { getCollection } from "astro:content"
+import ShelfComponent from "../../client/music-shelf/shelf.svelte"
+import Filter from "../../client/music-shelf/filter.svelte"
+
+import { Album } from "../../types.ts"
+
+const albums = await getCollection('albums')
+
+let albumArray : Album[] = []
+let allGenres = new Set<String>();
+let allVibes = new Set<String>();
+
+albums.forEach((album) => {
+
+    albumArray.push(
+        new Album(album.data.name, album.id, album.data.artist, album.data.year, "/images/album-covers/" + album.id + ".png",
+            new Set<string>(album.data.genres), new Set<string>(album.data.vibes)
+        )
+    )
+
+    album.data.genres.forEach((genre) => {
+        allGenres.add(genre)
+    })
+    album.data.vibes.forEach((vibe) => {
+        allVibes.add(vibe)
+    })
+})
+
+let genreArray = Array.from(allGenres)
+let vibeArray = Array.from(allVibes)
+---
+<ShelfComponent albums={albumArray} genres={genreArray} vibes={vibeArray} client:load></ShelfComponent>
