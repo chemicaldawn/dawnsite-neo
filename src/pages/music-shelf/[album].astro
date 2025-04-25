@@ -2,6 +2,7 @@
 import { render } from "astro:content";
 import { getCollection } from "astro:content";
 import Layout from "../../components/server/layout.astro";
+import AlbumPage from "../../components/server/music-shelf/album-page.astro";
 
 export async function getStaticPaths() {
     let paths : any[] = [];
@@ -13,7 +14,7 @@ export async function getStaticPaths() {
                     album: entry.id
                 },
                 props: {
-                    page: entry
+                    album_id: entry.id
                 }
             }
         )
@@ -22,10 +23,9 @@ export async function getStaticPaths() {
     return paths;
 }
 
-const { page } = Astro.props
-const { Content, headings } = await render(page)
+const { album_id } = Astro.props
 ---
 <Layout page="music-shelf">
-    <Content />
+    <AlbumPage album_id={album_id} />
 </Layout>
 

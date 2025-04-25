@@ -40,7 +40,7 @@
     })
 </script>
 
-<div id="navigation">
+<div id="side-navigation">
     <div id="selector">
         <p style="transform: translateY({arrow_pos}px)" id="selector-arrow">></p>
     </div>
@@ -52,54 +52,3 @@
         {/each}
     </div>
 </div>
-
-<style>
-    #navigation {
-        display: flex;
-        flex-direction: row;
-        gap: 1rem;
-
-        color: #a89984;
-
-        #selector {
-            flex-grow: 0;
-
-            #selector-arrow { 
-                margin: 0;
-
-                transition: transform 75ms ease-out;
-            }
-        }
-
-        #nav-items {
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            gap: 4px;
-
-            .nav-item {
-                background: none;
-                border: none;
-                text-align: left;
-
-                color: #6d5e50;
-
-                font-family: "Ubuntu Mono", monospace;
-                font-size: 1.3rem;
-
-                transition: all 100ms;
-            }
-
-            .nav-item:hover {
-                text-decoration: underline;
-            }
-            
-            .nav-item.selected {
-                font-weight: 700;
-
-                margin-left: 4px;
-                color: rgb(90, 74, 57);
-            }
-        }
-    }
-</style>
