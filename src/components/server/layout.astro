@@ -27,7 +27,10 @@ const { page } = Astro.props
         <Background client:load />
 		<Sidebar page={page}/>
         <div id="main">
-            <TopNavigation client:load></TopNavigation>
+            <div id="top-navigation">
+                <div id="squiggle">~/</div>
+                <div id="path">{page}</div>
+            </div>  
             <div id="content">
                 <slot />
             </div>

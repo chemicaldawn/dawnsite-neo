@@ -1,41 +1,28 @@
 ---
 import { getEntry, render } from "astro:content"
 import type { Album } from "../../types"
+import { quotelessJson } from "astro:schema"
 
 const { album_id } = Astro.props
 const album = await getEntry('albums', album_id)
+
 const { Content, headings } = await render(album!)
 ---
+
 <div class="h-separator">
-    <div class="cover">
-        <img src={"/images/album-covers/" + album?.id + ".png"} />
-    </div>
     <div class="info">
         <h1 class="album-name">
             { album?.data.name }
         </h1>
         <h2>
-            { "by " + album?.data.artist }
+            { "by " + album?.data.artist + ", " + String(album?.data.year)}
         </h2>
+        <div class="quote-block">
+            {album?.data.quotes.map((quote, i) => 
+                <p>{(i == 0 ? '"' : '') + quote + (i + 1 == album.data.quotes.length ? '"' : '')}</p>
+            )}
+        </div>  
     </div>
+    <img src={"/images/album-covers/" + album?.id + ".png"} />
 </div>
-
-
-
-<style>
-    .h-separator {
-        display: flex;
-        flex-direction: row;
-    }
-    .cover {
-
-        img {
-            max-width: 50%;
-        }
-
-        flex-grow: 0;
-    }
-    .info {
-        flex-grow: 1;
-    }
-</style>
+<Content></Content>

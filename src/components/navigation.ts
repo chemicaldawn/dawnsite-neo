@@ -4,6 +4,7 @@ export function navigateTo(basePath : string, otherPath : string) {
     const urlFragment = basePath + "/" + otherPath
     jQuery.get("/partials/" + urlFragment, (data) => {
         document.getElementById("content")!.innerHTML = data
+        document.getElementById("path")!.innerHTML = urlFragment
         const state = {
             basePath: basePath,
             otherPath: otherPath
@@ -13,7 +14,10 @@ export function navigateTo(basePath : string, otherPath : string) {
 }
 
 export function navigateBack(event : PopStateEvent) {
-    jQuery.get("/partials/" + event.state.basePath + "/" + event.state.otherPath, (data) => {
+    const urlFragment = event.state.basePath + "/" + event.state.otherPath
+
+    jQuery.get("/partials/" + urlFragment, (data) => {
         document.getElementById("content")!.innerHTML = data
+        document.getElementById("path")!.innerHTML = urlFragment
     })
 }

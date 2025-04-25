@@ -12,6 +12,8 @@ const albums = defineCollection({
         artist: z.string(),
         year: z.number(),
 
+        quotes: z.string().array(),
+
         genres: z.string().array(),
         vibes: z.string().array()
     })
