@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import BlogPage from '../../../../components/server/blog/blog-page.astro';
+
+export async function getStaticPaths() {
+    let paths : any[] = [];
+    let content = await getCollection('blog')
+    content.forEach((entry) => {
+        const id = entry.id.split("/")
+        paths.push(
+            {
+                params: {
+                    category: id[0],
+                    post: id[1]
+                },
+                props: {
+                    category: id[0],
+                    post: id[1]
+                }
+            }
+        )
+    })
+
+    return paths;
+}
+
+const { post, category } = Astro.props
+---
+<BlogPage category={category} post={post} />

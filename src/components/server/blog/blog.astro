@@ -1,0 +1,46 @@
+---
+import { getCollection } from "astro:content";
+import BlogPost from "../../client/blog/blog-post.svelte"
+import BlogPostBig from "../../client/blog/blog-post-big.svelte"
+
+const blog = await getCollection('blog')
+let posts : any[] = []
+let categories = new Map<string, any[]>()
+
+blog.forEach(post => {
+    const category = post.id.split("/")[0]
+
+    if (!categories.has(category)) {
+        categories.set(category, [])
+    }
+
+    posts.push(post)
+    categories.get(category)?.push(post)
+})
+
+posts.sort((a : any, b : any) => {
+    return a.data.date.getUTCDate() - b.data.date.getUTCDate() 
+})
+const mostRecentPost = posts[0]
+---
+<div id="recent-post">
+    <BlogPostBig client:load post={mostRecentPost}/>
+</div>
+<div id="blog-categories">
+    { categories.keys().map(category => 
+        <div class="blog-category">
+            <p class="blog-category-title">{"/" + category}</p>
+            <div class="blog-posts">
+                { categories.get(category)?.map(post => 
+                    <BlogPost client:load post={post} />
+                )}
+            </div>
+        </div>
+    )}
+</div>
+
+<script>
+    function navigatePost(id : string) {
+
+    }
+</script>

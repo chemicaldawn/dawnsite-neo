@@ -44,11 +44,15 @@
     <div id="selector">
         <p style="transform: translateY({arrow_pos}px)" id="selector-arrow">></p>
     </div>
+    <div id="tree-trunk"></div>
     <div bind:this={navitems} id="nav-items">
         {#each nav_items as nav_item}
-            <button id="page-{nav_item}" onclick={select} class={nav_item == selectedText ? "nav-item selected" : "nav-item"}>
-                {nav_item}
-            </button>
+            <div class="nav-item">
+                <div class="tree-branch"></div>
+                <button id="page-{nav_item}" onclick={select} class={nav_item == selectedText ? "nav-button selected" : "nav-button"}>
+                    {nav_item}
+                </button>
+            </div>
         {/each}
     </div>
 </div>

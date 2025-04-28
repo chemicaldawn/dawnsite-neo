@@ -1,0 +1,11 @@
+---
+import { getEntry, render } from "astro:content"
+
+const { category, post } = Astro.props
+const page = await getEntry("blog", category + "/" + post)
+if (!page) {
+    throw new Error()
+}
+const { Content, headings } = await render(page)
+---
+<Content />
