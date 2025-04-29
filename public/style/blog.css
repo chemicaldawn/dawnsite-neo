@@ -2,49 +2,70 @@
 
     padding: 1rem;
     background-color: #25211f;
+    min-height: 12rem;
     margin-bottom: 1rem;
     display: flex;
+    position: relative;
 
     border: var(--border-thickness) solid var(--border-color);
 
     .blog-post-big-info {
 
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 400;
+        }
+
+        h3 {
+            color: #8a8272 !important;
+            position: absolute;
+            bottom: 1rem;
+        }
     }
 }
 
-#blog-categories {
-    display: flex;
-    flex-direction: row;
+#other-posts {
+    display: grid;
+    grid-template-columns: repeat(3, 33.3%);
+    gap: 1rem;
+    position: relative;
 
-    .blog-category {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-weight: 400;
+    }
+
+    h3 {
+        font-size: 1rem;
+        color: #8a8272 !important;
+        position: absolute;
+        bottom: 0.75rem;
+    }
+}
+
+.blog-post {
+    background-color: #25211f;
+    padding: 0.75rem;
+    border: var(--border-thickness) solid var(--border-color-muted);
+
+    min-height: 6rem;
+
+
+    .blog-post-header {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
 
-        width: 48%;
-        gap: 0.25rem;
-        
-        .blog-category-title {
-            padding: 0.5rem;
-            background-color: #25211f;
-            margin: 0;
-        }
-
-        .blog-posts {
-
-            .blog-post {
-                background-color: #25211f;
-                padding: 0.5rem;
-
-                .blog-post-header {
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-
-                    .blog-post-date {
-                        color: #8a8272 !important;
-                    }
-                }
-            }
+        .blog-post-date {
+            color: #8a8272 !important;
+            float: bottom;
         }
     }
 }

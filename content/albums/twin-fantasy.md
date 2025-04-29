@@ -7,5 +7,7 @@ quotes: ["When the mirror breaks, I wouldn't miss it for the world","Call it bla
 
 genres: ["indie rock"]
 vibes: ["sad","gay","melancholy"]
+
+greenborder: true
 ---
 test

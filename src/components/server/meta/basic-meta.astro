@@ -1,0 +1,8 @@
+---
+const { page } = Astro.props
+---
+<link rel="canonical" href={"https://dawns.info/" + page} />
+<meta property="og:title" content={page + " | dawns.info"} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={"https://dawns.info/" + page} />
+<meta property="og:image" content="https://dawns.info/images/thumbnail.png" />

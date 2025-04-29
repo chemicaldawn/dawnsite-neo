@@ -7,5 +7,7 @@ quotes: ["I guess I thought our mouths would meet, or at the very least our eyes
 
 genres: ["emo","electronic"]
 vibes: ["nostalgic","melancholy"]
+
+greenborder: true
 ---
 test

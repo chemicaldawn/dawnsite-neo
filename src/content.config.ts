@@ -10,7 +10,8 @@ const blog = defineCollection({
     schema: z.object({
         title: z.string(),
         description: z.string(),
-        date: z.date()
+        date: z.date(),
+        thumbnail : z.string().default("/images/thumbnail.png")
     })
 })
 
@@ -24,7 +25,9 @@ const albums = defineCollection({
         quotes: z.string().array(),
 
         genres: z.string().array(),
-        vibes: z.string().array()
+        vibes: z.string().array(),
+
+        greenborder: z.boolean().default(false)
     })
 })
 

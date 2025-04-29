@@ -4,6 +4,7 @@ import ShelfComponent from "../../client/music-shelf/shelf.svelte"
 import Filter from "../../client/music-shelf/filter.svelte"
 
 import { Album } from "../../types.ts"
+import BasicMeta from "../meta/basic-meta.astro"
 
 const albums = await getCollection('albums')
 
@@ -15,7 +16,7 @@ albums.forEach((album) => {
 
     albumArray.push(
         new Album(album.data.name, album.id, album.data.artist, album.data.year, "/images/album-covers/" + album.id + ".png",
-            new Set<string>(album.data.genres), new Set<string>(album.data.vibes)
+            new Set<string>(album.data.genres), new Set<string>(album.data.vibes), album.data.greenborder
         )
     )
 
@@ -30,4 +31,6 @@ albums.forEach((album) => {
 let genreArray = Array.from(allGenres)
 let vibeArray = Array.from(allVibes)
 ---
+<BasicMeta page="music-shelf" />
+
 <ShelfComponent albums={albumArray} genres={genreArray} vibes={vibeArray} client:load></ShelfComponent>

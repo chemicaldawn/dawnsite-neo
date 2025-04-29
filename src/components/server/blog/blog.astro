@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BlogPost from "../../client/blog/blog-post.svelte"
 import BlogPostBig from "../../client/blog/blog-post-big.svelte"
+import BasicMeta from "../meta/basic-meta.astro";
 
 const blog = await getCollection('blog')
 let posts : any[] = []
@@ -23,19 +24,14 @@ posts.sort((a : any, b : any) => {
 })
 const mostRecentPost = posts[0]
 ---
+<BasicMeta page="blog" />
+
 <div id="recent-post">
     <BlogPostBig client:load post={mostRecentPost}/>
 </div>
-<div id="blog-categories">
-    { categories.keys().map(category => 
-        <div class="blog-category">
-            <p class="blog-category-title">{"/" + category}</p>
-            <div class="blog-posts">
-                { categories.get(category)?.map(post => 
-                    <BlogPost client:load post={post} />
-                )}
-            </div>
-        </div>
+<div id="other-posts">
+    { posts.slice(1).map(post => 
+        <BlogPost client:load post={post} />
     )}
 </div>
 

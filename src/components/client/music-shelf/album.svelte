@@ -9,7 +9,7 @@
     }
 </script>
 
-<button onclick={() => {travel(album)}} class="album">
+<button onclick={() => {travel(album)}} class={ album.greenborder ? "album greenborder" : "album" }>
     <img src={album.cover} alt="album cover for {album.name}"/>
     <div class="album-name">{album.name}</div>
     <div class="album-artist">by {album.artist}</div>

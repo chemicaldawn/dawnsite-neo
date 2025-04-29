@@ -8,4 +8,13 @@ if (!page) {
 }
 const { Content, headings } = await render(page)
 ---
+
+<meta property="og:title" content={page.data.title} />
+<meta property="og:type" content="article" />
+<meta property="og:article:author" content="Dawn Schumacher" />
+<meta property="og:article:published_time" content={page.data.date.toUTCString()} />
+
+<meta property="og:url" content={"https://dawns.info/blog/" + category + "/" + post} />
+<meta property="og:image" content={"https://dawns.info" + page.data.thumbnail} />
+
 <Content />

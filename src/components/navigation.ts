@@ -1,7 +1,7 @@
 import jQuery from "jquery";
 
 export function navigateTo(basePath : string, otherPath : string) {
-    const urlFragment = basePath + "/" + otherPath
+    const urlFragment = otherPath == "" ? basePath : basePath + "/" + otherPath
     jQuery.get("/partials/" + urlFragment, (data) => {
         document.getElementById("content")!.innerHTML = data
         document.getElementById("path")!.innerHTML = urlFragment

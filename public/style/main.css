@@ -4,7 +4,9 @@
     --foreground-light: #312d2b;
     --foreground-dark: #25211f;
 
-    --border-color: #fbf1c7;
+    --border-color: #cfc59c;
+    --border-color-muted: #9f8f72;
+    --border-color-highlight: #5d8743;
     --border-thickness: 1.5px;
 
     --name-first: #5d8743;
@@ -101,6 +103,10 @@ h3 {
 
         image-rendering: pixelated;
         margin-right: 0.75rem;
+    }
+
+    img:hover {
+        
     }
 
     #first {

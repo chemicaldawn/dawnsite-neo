@@ -37,6 +37,12 @@
     transform: translateY(-7.5px) scale(1.025);
 }
 
+.album.greenborder {
+    border-image: linear-gradient(to bottom, var(--border-color) 0%, var(--border-color-highlight) 100%) 1;
+    border-width: var(--border-thickness);
+    border-style: solid;
+}
+
 #filters {
     display: flex;
     flex-direction: row;
