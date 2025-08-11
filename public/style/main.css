@@ -1,6 +1,6 @@
 :root {
     /* theme */
-    --background: #fbf1c7;
+    --background: #fff2dd;
     --foreground-light: #312d2b;
     --foreground-dark: #25211f;
 
@@ -70,7 +70,7 @@ h3 {
 
     flex-grow: 0;
 
-    width: 65vw;
+    width: 100%;
     padding: 1rem;
     box-sizing: border-box;
     background-color: var(--foreground-light)
@@ -229,4 +229,40 @@ h3 {
 
     width: 100%;
     height: 100%;
+}
+
+@media only screen and (max-width: 860px) {
+  body {
+    margin: 0;
+    flex-direction: column;
+  }
+
+  div#main {
+    margin: 0;
+    padding: 2.5vw;
+    width: 95vw;
+  }
+
+  div#sidebar {
+    flex-direction: row;
+    margin-left: 2rem;
+  }
+
+  div#side-navigation {
+    #nav-items {
+        flex-direction: row;
+    }
+  }
+
+  div#selector {
+    display: none;
+  }
+
+  div#tree-trunk {
+    display: none;
+  }
+
+  div.tree-branch {
+    display: none;
+  }
 }
