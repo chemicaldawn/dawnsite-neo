@@ -1,51 +1,65 @@
-.album {
-    display: flex;
-    flex-direction: column;
+.album-border {
+    background-color: var(--border-color);
 
     width: 24%;
     box-sizing: border-box;
-    
-    font-family: 'Ubuntu Mono', monospace;
-    text-align: left;
-
-    border: var(--border-thickness) solid var(--border-color);
-
-    color: #fbf1c7;
-    background-color: #25211f;
-    padding: 1rem;
+    padding: var(--border-thickness);
+    border-radius: var(--outer-radius);
 
     cursor: pointer;
     transition: transform 100ms;
 
-    img {
+    .album {
+
+        display: flex;
+        flex-direction: column;
+
         width: 100%;
-        margin-bottom: 0.5rem;
-    }
+        height: 100%;
+        border: 0;
 
-    .album-name {
-        font-weight: bold;
-        font-size: 1rem;
-    }
+        background-color: var(--foreground-dark);
+        border-radius: calc(var(--outer-radius) - var(--border-thickness));
+        padding: 1rem;
 
-    .album-artist {
-        margin-top: 4px;
-        font-size: 0.75rem;
+        img {
+            border-radius: calc(var(--outer-radius) - var(--border-thickness));
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .album-name {
+            color: var(--text-color);
+            font-family: 'Google Sans Code', sans-serif;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .album-artist {
+            color: var(--text-color-muted);
+            font-family: 'Google Sans Code', sans-serif;
+            margin-top: 4px;
+            font-size: 0.8rem;
+        }
     }
 }
 
-.album:hover {
+.album-border:hover {
     transform: translateY(-7.5px) scale(1.025);
 }
 
-.album.greenborder {
-    border-image: linear-gradient(to bottom, var(--border-color) 0%, var(--border-color-highlight) 100%) 1;
-    border-width: var(--border-thickness);
-    border-style: solid;
+.album-border.greenborder {
+    background-image: linear-gradient(to bottom, var(--border-color) 0%, var(--border-color-highlight) 100%);  
+    border-radius: var(--outer-radius);
 }
 
 #filters {
     display: flex;
     flex-direction: row;
+
+    p {
+        margin-bottom: 0.5rem;
+    }
 
     div {
         flex-grow: 1;
@@ -56,7 +70,7 @@
 #filter-collection {
     display: flex;
     flex-direction: row;
-    gap: 4px;
+    gap: 6px;
 }
 
 #albums {
@@ -71,25 +85,29 @@
 
 button.filter {
     color: white;
-    font-family: 'Ubuntu Mono', monospace;
-    padding: 4px;
+    font-family: 'Google Sans Code', sans-serif;
+    font-size: 1rem;
+    padding: 6px;
 
     background-color: #25211f;
 
-    border-radius: 0;
-    border: 1px solid white;
+    border: 0;
+    border-radius: var(--outer-radius);
 
     transition: background-color 75ms ease-out, color 75ms ease-out;
+    transform: rotate(0deg);
 }
 
 button.filter:hover {
     color: #25211f;
     background-color: rgb(196, 190, 172);
+    transform: rotate(5deg);
 }
 
 button.filter.selected {
     color: #25211f !important;
     background-color: white !important;
+    transform: rotate(5deg);
 }
 
 .h-separator {
