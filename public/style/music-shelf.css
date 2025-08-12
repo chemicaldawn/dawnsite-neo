@@ -1,13 +1,14 @@
 .album-border {
     background-color: var(--border-color);
 
-    width: 24%;
+    width: 100%;
     box-sizing: border-box;
     padding: var(--border-thickness);
     border-radius: var(--outer-radius);
 
     cursor: pointer;
     transition: transform 100ms;
+
 
     .album {
 
@@ -76,11 +77,12 @@
 #albums {
     margin-top: 1rem;
 
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template: auto / 1fr 1fr 1fr 1fr;
+    justify-content: left;
     
-    gap: 1%;
+    gap: 1rem;
 }
 
 button.filter {
@@ -110,21 +112,34 @@ button.filter.selected {
     transform: rotate(5deg);
 }
 
-.h-separator {
+.album-header {
     display: flex;
 
     flex-direction: row;
-    gap: 1rem;
-    margin-bottom: 1rem;
+    gap: 1.25rem;
 
-    img {
-        height: 12rem;
-        object-fit: contain;
+    div.cover {
+        max-height: 100%;
+        flex-grow: 0;
+        img {
+            height: 14rem;
+            
+            border-radius: var(--outer-radius);
+            object-fit: cover;
+        }
     }
 
-    .info {
+    div.info {
+        flex-direction: column;
+        justify-content: space-between;
         flex-grow: 1;
         
+        h1 {
+            font-size: 3.5rem;
+        }
+        h2 {
+            margin-top: 0;
+        }
     
         .quote-block {
     
@@ -135,6 +150,36 @@ button.filter.selected {
                 margin-top: 0.35rem;
                 margin-bottom: 0.35rem;
                 font-style: italic;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1040px) {
+    #albums {
+        grid-template: auto / 1fr 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 740px) {
+    #albums {
+        grid-template: auto / 1fr 1fr !important;
+    }
+
+    button.filter {
+        font-size: 0.9rem;
+    }
+
+    .album-border {
+        .album {
+            .album-name {
+                font-size: 1rem;
+            }
+            .album-artist {
+                color: var(--text-color-muted);
+                font-family: 'Google Sans Code', sans-serif;
+                margin-top: 4px;
+                font-size: 0.8rem;
             }
         }
     }

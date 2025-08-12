@@ -26,13 +26,15 @@ const mostRecentPost = posts[0]
 ---
 <BasicMeta page="blog" />
 
-<div id="recent-post">
-    <BlogPostBig client:load post={mostRecentPost}/>
-</div>
-<div id="other-posts">
-    { posts.slice(1).map(post => 
-        <BlogPost client:load post={post} />
-    )}
+<div class="lower-shelf">
+    <div id="recent-post">
+        <BlogPostBig client:load post={mostRecentPost}/>
+    </div>
+    <div id="other-posts">
+        { posts.slice(1).map(post => 
+            <BlogPost client:load post={post} />
+        )}
+    </div>
 </div>
 
 <script>

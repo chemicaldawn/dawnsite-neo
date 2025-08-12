@@ -3,11 +3,11 @@
     padding: 1rem;
     background-color: #25211f;
     min-height: 12rem;
-    margin-bottom: 1rem;
     display: flex;
     position: relative;
 
     border: var(--border-thickness) solid var(--border-color);
+    border-radius: var(--outer-radius);
 
     .blog-post-big-info {
 
@@ -26,11 +26,17 @@
             bottom: 1rem;
         }
     }
+
+    transition: transform 100ms;
+}
+
+.blog-post-big:hover {
+    transform: scaleX(1.010) scaleY(1.030);
 }
 
 #other-posts {
     display: grid;
-    grid-template-columns: repeat(3, 33.3%);
+    grid-template: auto / 1fr 1fr 1fr;
     gap: 1rem;
     position: relative;
 
@@ -54,6 +60,7 @@
     background-color: #25211f;
     padding: 0.75rem;
     border: var(--border-thickness) solid var(--border-color-muted);
+    border-radius: var(--outer-radius);
 
     min-height: 6rem;
 
@@ -68,4 +75,10 @@
             float: bottom;
         }
     }
+
+    transition: transform 100ms;
+}
+
+.blog-post:hover {
+    transform: translateY(-7.5px) scale(1.025);
 }

@@ -32,5 +32,6 @@ let genreArray = Array.from(allGenres)
 let vibeArray = Array.from(allVibes)
 ---
 <BasicMeta page="music-shelf" />
-
-<ShelfComponent albums={albumArray} genres={genreArray} vibes={vibeArray} client:load></ShelfComponent>
+<div class="lower-shelf">
+    <ShelfComponent albums={albumArray} genres={genreArray} vibes={vibeArray} client:load></ShelfComponent>
+</div>

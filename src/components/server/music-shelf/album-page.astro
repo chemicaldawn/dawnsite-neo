@@ -9,20 +9,26 @@ const album = await getEntry('albums', album_id)
 const { Content, headings } = await render(album!)
 ---
 
-<div class="h-separator">
-    <div class="info">
-        <h1 class="album-name">
-            { album?.data.name }
-        </h1>
-        <h2>
-            { "by " + album?.data.artist + ", " + String(album?.data.year)}
-        </h2>
-        <div class="quote-block">
-            {album?.data.quotes.map((quote, i) => 
-                <p>{(i == 0 ? '"' : '') + quote + (i + 1 == album.data.quotes.length ? '"' : '')}</p>
-            )}
-        </div>  
+<div class="upper-shelf">
+    <div class="album-header">
+        <div class="cover">
+            <img src={"/images/album-covers/" + album?.id + ".png"} />
+        </div>
+        <div class="info">
+            <h1 class="album-name">
+                { album?.data.name }
+            </h1>
+            <h2>
+                { "by " + album?.data.artist + ", " + String(album?.data.year)}
+            </h2>
+            <div class="quote-block">
+                {album?.data.quotes.map((quote, i) => 
+                    <p>{(i == 0 ? '"' : '') + quote + (i + 1 == album.data.quotes.length ? '"' : '')}</p>
+                )}
+            </div>  
+        </div>
     </div>
-    <img src={"/images/album-covers/" + album?.id + ".png"} />
 </div>
-<Content></Content>
+<div class="lower-shelf">
+    <Content></Content>
+</div>
