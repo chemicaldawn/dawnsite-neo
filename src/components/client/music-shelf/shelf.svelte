@@ -76,7 +76,6 @@
     })
 </script>
 
-<p>Welcome to my music shelf! If you want cool music recommendations, this is the place! Use the filters below to sort through my collection.</p>
 <div id="filters">
     <div id="genre">
         <p>I'm in the mood for...</p>

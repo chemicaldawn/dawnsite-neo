@@ -25,7 +25,9 @@ posts.sort((a : any, b : any) => {
 const mostRecentPost = posts[0]
 ---
 <BasicMeta page="blog" />
-
+<div class="upper-shelf">
+    dawn's blog: 100% generative AI free or your money back
+</div>
 <div class="lower-shelf">
     <div id="recent-post">
         <BlogPostBig client:load post={mostRecentPost}/>
