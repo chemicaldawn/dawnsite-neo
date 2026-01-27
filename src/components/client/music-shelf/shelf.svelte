@@ -31,12 +31,6 @@
 
             if (flag) { albumList.push(album)}
         })
-        albumList.sort((a, b) => {
-            if (a.date_added > b.date_added) {
-                return -1
-            }
-            return 1
-        })
     }
 
     function genreToggle(event: MouseEvent, genre : string) {
@@ -85,7 +79,7 @@
 <div id="filters">
     <div id="genre">
         <p>I'm in the mood for...</p>
-        <div class="filter-collection">
+        <div id="filter-collection">
             {#each genres as genre}
                 <button onclick={(event) => {genreToggle(event, genre)}} class="filter">{genre}</button>
             {/each}
@@ -93,7 +87,7 @@
     </div>
     <div id="vibe">
         <p>I want to feel a little...</p>
-        <div class="filter-collection">
+        <div id="filter-collection">
             {#each vibes as vibe}
                 <button onclick={(event) => {vibeToggle(event, vibe)}} class="filter">{vibe}</button>
             {/each}

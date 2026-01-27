@@ -17,11 +17,10 @@ const { page } = Astro.props
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-        
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
         <link rel="stylesheet" href="/style/main.css">
-        <link rel="stylesheet" href="/style/decoration.css">
-        <link rel="stylesheet" href="/style/about-me.css">
         <link rel="stylesheet" href="/style/blog.css">
         <link rel="stylesheet" href="/style/music-shelf.css">
     </head>
@@ -29,6 +28,10 @@ const { page } = Astro.props
         <Background client:load />
 		<Sidebar page={page}/>
         <div id="main">
+            <div id="top-navigation">
+                <div id="squiggle">~/</div>
+                <div id="path">{page}</div>
+            </div>  
             <div id="content">
                 <slot />
             </div>

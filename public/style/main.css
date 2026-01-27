@@ -1,36 +1,26 @@
 :root {
     /* theme */
-    --text-color-bright: #7aab59;
-    --text-color: rgb(255, 255, 255);
+    --text-color: rgb(247, 241, 216);
     --text-color-muted: #9f8f72;
 
-    --content-font: "Cormorant Garamond";
-    --content-size: 1.4rem;
-
-    --background: #ffffff;
-    --foreground-light: #151a15;
-    --foreground-dark: #151a15;
-
-    --shadow-color: #000000;
-    --shadow-size: 0.5rem;
+    --background: #f5ead8;
+    --foreground-light: #312d2b;
+    --foreground-dark: #221e1b;
 
     --border-color: #cfc59c;
     --border-color-muted: #9f8f72;
-    --border-color-highlight: #7bba59;
+    --border-color-highlight: #5d8743;
     --border-thickness: 2px;
 
-    --name-font: "Instrument Serif";
-    --name-size: 2.5rem;
-    --name-first: #4f8831;
-    --name-last: #f3d8be;
+    --name-first: #5d8743;
+    --name-last: #605443;
 
     /* tree */
-    --tree-color: #000000;
-    --tree-item: #000000;
-    --tree-thickness: 1px;
+    --tree-color: #b59f7e;
+    --tree-thickness: 0.115rem;
 
     /* radii */
-    --outer-radius: 10px;
+    --outer-radius: 8px;
 }
 
 html, body {
@@ -57,24 +47,14 @@ p {
     margin: 0;
 }
 
-em {
-    color: var(--text-color-muted)
-}
-
-strong {
-    color: var(--text-color-bright)
-}
-
 h1 {
     font-size: 2.5rem;
     margin: 0;
 }
 
 h2 {
-    font-size: 1.5rem;
-
-    margin-top: 0rem;
-    margin-bottom: 0.3rem;
+    margin-top: 0.3rem;
+    font-size: 1rem;
 }
 
 h3 {
@@ -91,8 +71,8 @@ h3 {
 }
 
 #content {
-    font-family: var(--content-font), sans-serif;
-    font-size: var(--content-size);
+    font-family: 'Google Sans Code', sans-serif;
+    font-size: 1rem;
     color: var(--text-color);
 
     display: flex;
@@ -103,6 +83,8 @@ h3 {
     width: 100%;    
     z-index: 1;
 
+    transform: translateY(calc(-1 * var(--outer-radius)));
+
     .upper-shelf {
         display: flex;
         flex-direction: column;
@@ -110,12 +92,13 @@ h3 {
         flex-grow: 1;
 
         padding: 1rem;
+        padding-top: calc(1rem + var(--outer-radius));
 
         background-color: var(--foreground-dark);
-        box-shadow: var(--shadow-size) var(--shadow-size) 0px var(--shadow-color);
 
-        border: 1px solid white;
-        border-radius: var(--outer-radius);
+        outline: 4px solid var(--background);
+        border-bottom-left-radius: var(--outer-radius);
+        border-bottom-right-radius: var(--outer-radius);
 
         box-sizing: border-box;
         width: 100%;
@@ -132,13 +115,10 @@ h3 {
         padding-top: calc(1rem + var(--outer-radius));
         
         background-color: var(--foreground-light);
-        box-shadow: var(--shadow-size) var(--shadow-size) 0px var(--shadow-color);
 
-        border: 1px solid white;
-        border-top: none;
+        outline: 4px solid var(--background);
         border-bottom-left-radius: var(--outer-radius);
         border-bottom-right-radius: var(--outer-radius);
-        transform: translateY(calc(-1 * var(--outer-radius)));
 
         box-sizing: border-box;
         width: 100%;
@@ -161,13 +141,13 @@ h3 {
     flex-direction: row;
     gap: 0px;
 
-    font-family: var(--name-font), monospace;
-    font-size: var(--name-size);
+    font-family: "Google Sans Code", monospace;
+    font-size: 2rem;
     font-weight: 400;
     font-style: normal;
 
     img {
-        height: var(--name-size);
+        height: 2rem;
         transform: translateY(0.2rem);
 
         image-rendering: pixelated;
@@ -179,12 +159,12 @@ h3 {
     }
 
     #first {
-        color: var(--name-first);
-        font-weight: 400;
+        color: #5d8743;
+        font-weight: 700;
     }
 
     #last {
-        color: var(--name-last);;
+        color: #605443;
     }
 }
 
@@ -209,8 +189,8 @@ h3 {
     display: flex;
     flex-direction: row2;
 
-    font-family: var(--content-font), monospace;
-    font-size: var(--content-size);
+    font-family: 'Google Sans Code', monospace;
+    font-size: 1rem;
     padding: 8px;
     background-color: var(--foreground-dark);
     box-sizing: border-box;
@@ -279,10 +259,10 @@ h3 {
             border: none;
             text-align: left;
 
-            color: var(--tree-item);
+            color: #6d5e50;
 
-            font-family: var(--content-font), monospace;
-            font-size: var(--content-size);
+            font-family: "Google Sans Code", monospace;
+            font-size: 1.1rem;
 
             transition: all 100ms;
         }
@@ -293,7 +273,7 @@ h3 {
         
         .nav-button.selected {
             font-weight: 700;
-            color: var(--tree-item)
+            color: rgb(90, 74, 57);
         }
     }
 }

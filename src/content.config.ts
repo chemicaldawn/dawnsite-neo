@@ -5,15 +5,6 @@ const pages = defineCollection({
     loader: glob({ pattern: "*.mdx", base: "./content/pages/" })
 })
 
-const aboutme = defineCollection({
-    loader: glob({ pattern: "**/*.md", base: "./content/about-me/" }),
-    schema: z.object({
-        title: z.string(),
-        ordinal: z.number(),
-        decorator_class: z.string()
-    })
-})
-
 const blog = defineCollection({
     loader: glob({ pattern: "**/*.md", base: "./content/blog/" }),
     schema: z.object({
@@ -29,7 +20,6 @@ const albums = defineCollection({
     schema: z.object({
         name: z.string(),
         artist: z.string(),
-        date_added: z.date(),
         year: z.number(),
 
         quotes: z.string().array(),
@@ -42,4 +32,4 @@ const albums = defineCollection({
 })
 
 
-export const collections = { pages, aboutme, blog, albums }
+export const collections = { pages, blog, albums }

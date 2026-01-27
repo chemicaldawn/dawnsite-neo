@@ -2,8 +2,6 @@ export class Album {
 
     name: string;
     id: string;
-    date_added : Date;
-    
     artist: string;
     year: number;
     cover: string;
@@ -13,11 +11,9 @@ export class Album {
 
     greenborder: boolean;
 
-    constructor(name : string, id: string, date_added : Date, artist : string, year : number, cover : string, genres : Set<String>, vibes : Set<String>, greenborder: boolean) {
+    constructor(name : string, id: string, artist : string, year : number, cover : string, genres : Set<String>, vibes : Set<String>, greenborder: boolean) {
         this.name = name;
         this.id = id;
-        this.date_added = date_added;
-
         this.artist = artist;
         this.year = year;
         this.cover = cover;
