@@ -1,0 +1,47 @@
+---
+import { getCollection } from "astro:content"
+
+const aboutme = await getCollection('aboutme')
+aboutme.sort((a, b) => {
+    return a.data.ordinal - b.data.ordinal
+})
+
+const aboutme_myself = aboutme.filter((card) => {
+    return card.id.includes("my-involvements")
+})
+const aboutme_my_interests = aboutme.filter((card) => {
+    return card.id.includes("my-hobbies")
+})
+---
+
+<div class="lower-shelf">
+
+    <div class="cards">
+        <div class="card-column">
+            <h2>my involvements</h2>
+            { aboutme_myself.map(card => 
+                <div class="card">
+                    <h2 class={card.data.decorator_class}>{card.data.title}</h2>  
+                    {card.body}
+                </div>
+            )}
+        </div>
+        <div class="card-column">
+            <h2>my hobbies</h2>
+            { aboutme_my_interests.map(card => 
+                <div class="card">
+                    <h2 class={card.data.decorator_class}>{card.data.title}</h2>  
+                    {card.body}
+                </div>
+            )}
+        </div>
+    </div>
+    <!--
+    <div id="experience-timeline">
+        { experience["categories"].map(category => 
+            <div class="label">{category["name"]}</div>
+            <div class="strip"></div>
+        ) }
+    </div>
+    -->
+</div>

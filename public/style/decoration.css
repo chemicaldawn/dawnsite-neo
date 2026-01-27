@@ -1,0 +1,15 @@
+.color-trans {
+    width: fit-content;
+    background-image: linear-gradient(to right, rgb(135, 208, 247),rgb(255, 171, 191));
+
+    color: transparent;
+    background-clip: text;
+}
+
+.color-clocktower {
+    width: fit-content;
+    background-image: linear-gradient(to right, rgb(232, 171, 224),rgb(225, 192, 255));
+
+    color: transparent;
+    background-clip: text;
+}

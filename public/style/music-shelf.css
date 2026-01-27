@@ -55,8 +55,9 @@
 }
 
 #filters {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
 
     p {
         margin-bottom: 0.5rem;
@@ -68,9 +69,10 @@
     }
 }
 
-#filter-collection {
+.filter-collection {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 6px;
 }
 
@@ -191,6 +193,10 @@ button.filter.selected {
                 font-size: 0.9rem;
             }
         }
+    }
+
+    #filters {
+        grid-template-columns: 1fr;
     }
 }
 

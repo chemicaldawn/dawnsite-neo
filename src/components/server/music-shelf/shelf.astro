@@ -15,7 +15,7 @@ let allVibes = new Set<String>();
 albums.forEach((album) => {
 
     albumArray.push(
-        new Album(album.data.name, album.id, album.data.artist, album.data.year, "/images/album-covers/" + album.id + ".png",
+        new Album(album.data.name, album.id, album.data.date_added, album.data.artist, album.data.year, "/images/album-covers/" + album.id + ".png",
             new Set<string>(album.data.genres), new Set<string>(album.data.vibes), album.data.greenborder
         )
     )
@@ -33,7 +33,7 @@ let vibeArray = Array.from(allVibes)
 ---
 <BasicMeta page="music-shelf" />
 <div class="upper-shelf">
-    <p>I love writing about music! Every one of the albums listed here has a story attached to it.</p>
+    <p>I love writing about music! Every one of the albums listed here has a story attached to it. <strong>Click on an album to read the attached note!</strong></p>
     <p>Albums with a green border are projects I consider really fundamental to me as a person. It's kind of an arbitrary classification, but just know that green means I have an outsized emotional attachment to it.</p>
 </div>
 <div class="lower-shelf">
