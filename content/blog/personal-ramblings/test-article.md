@@ -1,5 +1,5 @@
 ---
 title: Test Article
-description: Test Description
+description: I promise this will be functional eventually
 date: 2025-04-26
 ---
