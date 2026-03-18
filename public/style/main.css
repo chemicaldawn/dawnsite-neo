@@ -1,13 +1,16 @@
 :root {
     /* theme */
     --text-color: rgb(255, 255, 255);
-    --text-link: rgb(243, 181, 156);
+    --text-light: rgb(253, 211, 220);
+    --text-link: rgb(243, 156, 173);
     --text-color-navigation: rgb(255, 255, 255);
 
-    --background: #272c2a;
-    --foreground-light: #475540;
-    --foreground-dark: #8ab060;
-    --drop-shadow: #889582;
+    --background: #1f2422;
+    --foreground-light: #61824c;
+    --foreground-medium: #5a7f4c;
+    --foreground-dark: #343e35;
+    --foreground-darker: #1c231c;
+    --drop-shadow: #82958a88;
 
     --border-thickness: 2px;
 
@@ -61,6 +64,12 @@ h2 {
 
 h3 {
     margin: 0;
+}
+
+code {
+    padding: 1rem;
+    max-width: fit-content;
+    background-color: rgb(33, 33, 33);
 }
 
 #main {
@@ -118,7 +127,7 @@ h3 {
         padding: 1rem;
         padding-top: calc(1rem + var(--outer-radius));
         
-        background-color: var(--foreground-light);
+        background-color: var(--foreground-dark);
 
         outline: 4px solid var(--background);
         border-bottom-left-radius: var(--outer-radius);
@@ -197,7 +206,7 @@ h3 {
     font-family: 'Google Sans Code', monospace;
     font-size: 1rem;
     padding: 8px;
-    background-color: var(--foreground-dark);
+    background-color: var(--foreground-light);
     box-sizing: border-box;
 
     outline: 4px solid var(--background);
@@ -262,7 +271,7 @@ h3 {
             border: none;
             text-align: left;
 
-            color: #f7dfd8;
+            color: var(--text-light);
 
             font-family: "Google Sans Code", monospace;
             font-size: 1.1rem;
@@ -276,7 +285,7 @@ h3 {
         
         .nav-button.selected {
             font-weight: 700;
-            color: rgb(243, 181, 156);
+            color: var(--text-link);
         }
     }
 }

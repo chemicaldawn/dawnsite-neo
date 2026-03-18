@@ -19,7 +19,7 @@
         height: 100%;
         border: 0;
 
-        background-color: var(--foreground-dark);
+        background-color: var(--foreground-darker);
         border-radius: calc(var(--outer-radius) - var(--border-thickness));
         padding: 1rem;
 
@@ -89,7 +89,7 @@ button.filter {
     font-size: 1rem;
     padding: 6px;
 
-    background-color: #25211f;
+    background-color: var(--foreground-darker);
 
     border: 0;
     border-radius: var(--outer-radius);

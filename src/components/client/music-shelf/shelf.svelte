@@ -75,8 +75,7 @@
         filterAlbumList(selectedGenres, selectedVibes)
     })
 </script>
-
-<div id="filters">
+<div id="filters" class="lower-shelf">
     <div id="genre">
         <p>I'm in the mood for...</p>
         <div id="filter-collection">
@@ -94,7 +93,7 @@
         </div>
     </div>
 </div>
-<div id="albums">
+<div id="albums" class="lower-shelf">
     {#each albumList as album}
         <AlbumComponent album={album} />
     {/each}

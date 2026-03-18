@@ -20,7 +20,8 @@ const albums = defineCollection({
     schema: z.object({
         name: z.string(),
         artist: z.string(),
-        year: z.number(),
+        release_date: z.date(),
+        review_date: z.date(),
 
         quotes: z.string().array(),
 

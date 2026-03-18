@@ -32,11 +32,13 @@ const mostRecentPost = posts[0]
     <div id="recent-post">
         <BlogPostBig client:load post={mostRecentPost}/>
     </div>
-    <div id="other-posts">
-        { posts.slice(1).map(post => 
+</div>
+<div class="other-posts">
+    { posts.slice(1).map(post =>
+        <div class="lower-shelf">
             <BlogPost client:load post={post} />
-        )}
-    </div>
+        </div>
+    )}
 </div>
 
 <script>

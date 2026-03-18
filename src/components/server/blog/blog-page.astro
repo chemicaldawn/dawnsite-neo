@@ -16,5 +16,10 @@ const { Content, headings } = await render(page)
 
 <meta property="og:url" content={"https://dawns.info/blog/" + category + "/" + post} />
 <meta property="og:image" content={"https://dawns.info" + page.data.thumbnail} />
-
-<Content />
+<div class="upper-shelf">
+    <h1>{page.data.title}</h1>
+    <h2>{page.data.description}</h2>
+</div>
+<div class="lower-shelf">
+    <Content />
+</div>
